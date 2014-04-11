@@ -29,12 +29,6 @@ class TeenagerTest < MiniTest::Unit::TestCase
     assert_equal 'Woah, chill out!', teenager.hey('WATCH OUT!')
   end
 
-  def test_shouting_gibberish
-    skip
-    gibberish = ('A'..'Z').to_a.shuffle[0,10].join
-    assert_equal 'Woah, chill out!', teenager.hey(gibberish)
-  end
-
   def test_asking_a_question
     skip
     assert_equal 'Sure.', teenager.hey('Does this cryogenic chamber make me look fat?')
@@ -43,12 +37,6 @@ class TeenagerTest < MiniTest::Unit::TestCase
   def test_asking_a_numeric_question
     skip
     assert_equal 'Sure.', teenager.hey('You are, what, like 15?')
-  end
-
-  def test_asking_gibberish
-    skip
-    gibberish = ('a'..'z').to_a.shuffle[0,10].join
-    assert_equal 'Sure.', teenager.hey("#{gibberish}?")
   end
 
   def test_talking_forcefully
@@ -108,8 +96,7 @@ class TeenagerTest < MiniTest::Unit::TestCase
 
   def test_prolonged_silence
     skip
-    silence = " " * rand(1..10)
-    assert_equal 'Fine. Be that way!', teenager.hey(silence)
+    assert_equal 'Fine. Be that way!', teenager.hey('    ')
   end
 
   def test_on_multiple_line_questions
